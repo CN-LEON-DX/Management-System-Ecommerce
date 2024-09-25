@@ -50,13 +50,12 @@ block main
           .tooltip.absolute.top-0(role="tooltip")
             emoji-picker
 
-          div(class="custom-file-container" data-upload-id="uploadImage")
+          
 
           input(type="text" id="inputChat" name="content" placeholder="Type your message..." class="border rounded-lg p-2 flex-1 outline-none")
           button(type="submit" class="bg-slate-800 text-white rounded-lg p-2 ml-2")
             i(class="fa-solid fa-paper-plane px-4")
 
-  script(src="/socket.io/socket.io.js") 
-  script(src="/client/js/socketio.js")
-  script(type="module" src="https://unpkg.com/file-upload-with-preview/dist/index.js" ) 
-  script(type="module" src="/client/js/chat.js")
+  div(class="custom-file-container mr-2" data-upload-id="upload-image")
+    <i class="fa-solid fa-paperclip"></i>
+  

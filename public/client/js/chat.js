@@ -117,7 +117,9 @@ socket.on("SERVER_STOP_TYPING", (userID) => {
   }
 });
 
+console.log("Run here !");
 // file-upload
-// const upload = new FileUploadWithPreview.FileUploadWithPreview("uploadImage");
+const upload = new FileUploadWithPreview.FileUploadWithPreview("upload-image");
 // file-upload
-console.log(document.querySelector(".custom-file-container"));
+
+console.log("Run here !");

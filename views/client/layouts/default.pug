@@ -3,11 +3,7 @@ html
     head 
         title #{pageTitle}
         link(href="/client/css/output.css" rel="stylesheet")
-        link(
-            rel="stylesheet"
-            href="https://unpkg.com/file-upload-with-preview/dist/style.css"
-            )
-                
+        link(rel="stylesheet" href="https://unpkg.com/file-upload-with-preview/dist/style.css")
         block styles
     body.container.mx-auto
         include ../partials/header.pug
@@ -15,6 +11,13 @@ html
         block main
 
         include ../partials/footer.pug
+
+        script(src="/socket.io/socket.io.js")
+        script(src="/client/js/socketio.js")
+        script(type="module" src="https://unpkg.com/file-upload-with-preview/dist/index.js")
+
         script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
         script(src="/client/js/script.js") 
         script(src="/client/js/dropdown.js")
+        script(type="module" src="/client/js/chat.js")
+
