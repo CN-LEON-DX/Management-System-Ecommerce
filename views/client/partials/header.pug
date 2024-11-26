@@ -12,20 +12,18 @@ header.header
             | Search
 
       ul.flex.space-x-4
-        li
-          a(href="/" class="text-black font-semibold hover:underline") Home
 
         li.relative.group.nav-item
-          a(href="/products" class="text-black font-semibold hover:underline flex items-center")
-            span Products
+          a(href="/blog" class="text-black font-semibold hover:underline flex items-center")
+            span Blog
             svg.ml-1.w-4.h-4.fill-current.text-gray-500
               use(xlink:href="#chevron-down")
 
-          ul(class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg w-48 z-10 drop-menu")
-            each category in layoutCategory
-              li
-                a(href=`/products/${category.slug}` class="block px-4 py-2 text-black hover:bg-gray-100")
-                  span= category.title
+        li.relative.group.nav-item
+          a(href="/about_me" class="text-black font-semibold hover:underline flex items-center")
+            span About me
+            svg.ml-1.w-4.h-4.fill-current.text-gray-500
+              use(xlink:href="#chevron-down")
 
         li.relative.group
           a(href="/services" class="text-black font-semibold hover:underline flex items-center")
@@ -33,12 +31,7 @@ header.header
             svg.ml-1.w-4.h-4.fill-current.text-gray-500
               use(xlink:href="#chevron-down")
 
-        li.relative
-          a(href="/cart" class="text-black font-semibold flex items-center")
-            <i class="fa-solid fa-cart-shopping"></i>
-            span.ml-1 Cart
-            if miniCart.totalQuantity > 0
-              span(class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-semibold ml-2")  #{miniCart ? miniCart.totalQuantity : 0}
+        
         if (user)
           a(href="/chat" class="text-black font-semibold hover:underline flex items-center")
             span Chat 

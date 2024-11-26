@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:css": "tailwindcss -i ./public/admin/css/input.css -o ./public/admin/css/output.css --watch & tailwindcss -i ./public/client/css/input.css -o ./public/client/css/output.css --watch",
-    "start": "nodemon --inspect index.js",
+    "start": "nodemon index.ts",
     "start:dev": "npm-run-all --parallel build:css start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +15,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
-    "cloudinary": "^2.4.0",
+    "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -38,9 +38,20 @@
     "tinymce": "^7.3.0"
   },
   "devDependencies": {
-    "@types/node": "^22.5.5",
+    "@types/body-parser": "^1.19.5",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/express": "^5.0.0",
+    "@types/express-flash": "^0.0.5",
+    "@types/express-session": "^1.18.0",
+    "@types/method-override": "^0.0.35",
+    "@types/mongoose": "^5.11.97",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.9.3",
+    "@types/streamifier": "^0.1.2",
     "nodemon": "^3.1.4",
     "npm-run-all": "^4.1.5",
-    "tailwindcss": "^3.4.10"
+    "tailwindcss": "^3.4.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   }
 }

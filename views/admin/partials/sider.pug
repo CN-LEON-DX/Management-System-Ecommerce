@@ -8,6 +8,10 @@ mixin sider()
         i(class="fas fa-box") 
         p Product
     if roles.permissions && roles.permissions.includes('category-view')
+      a(href="/admin/blogs" class="block py-2 text-white flex items-center space-x-2")
+        i(class="fa-solid fa-blog")
+        p Blog
+    if roles.permissions && roles.permissions.includes('category-view')
       a(href="/admin/category" class="block py-2 text-white flex items-center space-x-2")
         i(class="fas fa-tags") 
         p Category

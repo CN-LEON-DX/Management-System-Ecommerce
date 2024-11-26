@@ -1,0 +1,45 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../partials/sider.pug
+
+block main
+  if roles.permissions.includes('category-create')
+    +alert-error()
+    div(class="flex")
+      +sider()
+      div(class="list-blog flex-grow p-4 relative")
+        h2(class="title text-2xl font-bold mb-4") Create Blog
+
+        form(class="grid grid-cols-[1fr,2fr] gap-8" method="POST" action=`${prefixAdmin}/blogs/create` enctype="multipart/form-data")
+          // Left column - General Information
+          div
+            label(for="author" class="mb-2 block font-semibold") Author
+            input(type="text" name="author" id="author" class="w-full p-2 mb-4 border border-gray-300 rounded" required)  
+
+            label(for="title" class="mb-2 block font-semibold") Title
+            input(type="text" name="title" id="title" class="w-full p-2 mb-4 border border-gray-300 rounded" required) 
+
+            label(for="category" class="mb-2 block font-semibold") Category
+            input(type="text" name="category" id="category" class="w-full p-2 mb-4 border border-gray-300 rounded" required) 
+
+            label(for="status" class="mb-2 block font-semibold") Status
+            select(name="status" id="status" class="w-full p-2 mb-4 border border-gray-300 rounded")
+              option(value="active") Active
+              option(value="inactive") Inactive
+
+          // Right column - Content and Image
+          div
+            label(for="image" class="mb-2 block font-semibold") Image
+            input(type="file" accept="image/*" name="image" id="image" class="w-full p-2 mb-4 border border-gray-300 rounded")
+            img(id="image-preview" class="object-cover mb-4 hidden" style="width: 60px; height: 60px;")
+
+            label(for="content" class="mb-2 block font-semibold") Content
+            textarea(name="content" id="content" rows="10" class="w-full p-2 mb-4 border border-gray-300 rounded tinymce-editor")
+
+          div(class="col-span-2 absolute right-[20px] top-[20px]")
+            button(type="submit" id="btnCreate" class="bg-slate-700 text-white px-4 py-2 rounded") Create Blog
+
+    script(src="/admin/js/create-blog.js") 
+  else
+    h2(class="text-2xl font-bold text-center") You don't have permission to view this page
+    a(href=`${prefixAdmin}/blogs` class="block text-center mt-4 text-blue-500") Back to list blogs
